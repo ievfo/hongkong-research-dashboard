@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>15 分钟慢行服务区｜详细分析</title>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <main class='detail'>
+    <a class='back' href='index.html'>← 返回地图交互主页</a>
+    <header class='hero'>
+      <div class='eyebrow'>DATA METHOD &amp; INTERPRETATION</div>
+      <h1>15 分钟慢行服务区</h1>
+      <p class='subtitle'>服务区按 0–5、5–10、10–15 分钟时间阻抗分级。</p>
+    </header>
+    <div class='grid'>
+      <section>
+        <article class='card'><h2>研究图层说明</h2><p>该图层直接读取 ArcGIS Network Analyst 导出的服务区面，按 FromBreak 和 ToBreak 对应 0–5、5–10、10–15 分钟时间圈层。交互地图支持查看各圈层时间范围。</p></article>
+        <article class='card'><h2>详细数据与分析流程</h2><div class='step-list'><article class='step'><h3>创建服务区并加载设施点</h3><p>在网络分析菜单中创建服务区，使用“导入设施点”加载待分析位置。</p><figure class='analysis-figure'><a href='assets/service-create.png' target='_blank' rel='noopener'><img src='assets/service-create.png' alt='补充图：创建网络分析服务区' loading='lazy'></a><figcaption>补充图：创建网络分析服务区（点击查看原图）</figcaption></figure><figure class='analysis-figure'><a href='assets/service-facilities.png' target='_blank' rel='noopener'><img src='assets/service-facilities.png' alt='补充图：导入设施点' loading='lazy'></a><figcaption>补充图：导入设施点（点击查看原图）</figcaption></figure></article><article class='step'><h3>时间阻抗与输出几何设置</h3><p>设置出行方向、时间中断值及服务区输出方式。下图时间参数为 10、15、20 分钟的操作示例；本网站已有导出数据为 0–5、5–10、10–15 分钟圈层，复现时应对应设置 5、10、15 分钟。截图展示融合、圆环等输出选项。</p><figure class='analysis-figure'><a href='assets/service-time-settings.png' target='_blank' rel='noopener'><img src='assets/service-time-settings.png' alt='补充图：时间阻抗参数示例（10、15、20 分钟）' loading='lazy'></a><figcaption>补充图：时间阻抗参数示例（10、15、20 分钟）（点击查看原图）</figcaption></figure><figure class='analysis-figure'><a href='assets/service-output-settings.png' target='_blank' rel='noopener'><img src='assets/service-output-settings.png' alt='补充图：服务区输出几何设置' loading='lazy'></a><figcaption>补充图：服务区输出几何设置（点击查看原图）</figcaption></figure></article><article class='step'><h3>步骤 1：服务区网络分析</h3><p>在 ArcGIS Pro Network Analyst 中设置设施点、道路网络、慢行出行模式与 5、10、15 分钟时间阻抗，生成分级服务区面。</p></article><article class='step'><h3>步骤 2：服务区符号化与导出</h3><p>将不同时间圈层赋予由近及远的递进色彩，完成边界、道路与图例排版后导出服务区结果。</p></article></div></article>
+        <article class='card'><h2>最终 ArcGIS Pro 制图成果</h2><figure class='analysis-figure'><img src='assets/service-final.jpg' alt='15 分钟慢行服务区最终出图' loading='lazy'><figcaption>图 3.1：服务区分析图（用户提供的最终 ArcGIS Pro 成图）。</figcaption></figure></article>
+        <article class='card'><h2>指标 / 判读口径</h2><code>服务区 = 在设定网络、出行方式与时间阻抗下，从设施出发可达的道路服务范围</code></article>
+      </section>
+      <aside>
+        <article class='card'><div class='muted'>核心指标</div><div class='metric'>3</div><div class='muted'>服务时间圈层</div></article>
+        <a class='detail-link' href='map_service.html'>单独打开此交互地图 →</a>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

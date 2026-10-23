@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>平视绿视率（GVI）｜详细分析</title>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <main class='detail'>
+    <a class='back' href='index.html'>← 返回地图交互主页</a>
+    <header class='hero'>
+      <div class='eyebrow'>DATA METHOD &amp; INTERPRETATION</div>
+      <h1>平视绿视率（GVI）</h1>
+      <p class='subtitle'>覆盖 31,514 个街景采样点，其中 18,147 个点的绿视率低于 5%。</p>
+    </header>
+    <div class='grid'>
+      <section>
+        <article class='card'><h2>研究图层说明</h2><p>以街景采样点的 GVI_Score 为核心属性，量化行人平视视角中的绿植暴露。网页交互地图读取 Longitude、Latitude 与 GVI_Score 字段；本页补充 ArcGIS Pro 的数据还原、分级与最终制图成果。</p></article>
+        <article class='card'><h2>详细数据与分析流程</h2><div class='step-list'><article class='step'><h3>街景图像与预处理</h3><p>原始街景与对应灰度图用于展示图像输入和预处理。灰度化仅转换图像色彩，不代表已完成绿植识别；绿植掩膜或分割叠加图仍待补充。</p><figure class='analysis-figure'><a href='assets/gvi-street-original.png' target='_blank' rel='noopener'><img src='assets/gvi-street-original.png' alt='补充图：Google 街景原始图像，保留来源标识' loading='lazy'></a><figcaption>补充图：Google 街景原始图像，保留来源标识（点击查看原图）</figcaption></figure><figure class='analysis-figure'><a href='assets/gvi-grayscale.png' target='_blank' rel='noopener'><img src='assets/gvi-grayscale.png' alt='补充图：同一街景的灰度预处理结果' loading='lazy'></a><figcaption>补充图：同一街景的灰度预处理结果（点击查看原图）</figcaption></figure></article><article class='step'><h3>步骤 1：XY 点表还原与坐标系设定</h3><p>将包含经纬度和绿视率字段的点表导入 ArcGIS Pro，通过 XY Table To Point 还原为采样点；坐标系设为 GCS_WGS_1984（EPSG:4326），以确保后续网页地图能正确定位。</p><figure class='analysis-figure'><img src='assets/gvi-xy-table.jpg' alt='香港道路采样点和 XY Table To Point 工具' loading='lazy'><figcaption>图 1.1：ArcGIS Pro 中的香港道路采样点与 XY 点表还原界面。</figcaption></figure></article><article class='step'><h3>步骤 2：绿视率分级符号化</h3><p>在符号系统中以绿视率字段作为分级依据，选择分级色彩并调整点符号大小与视觉层级，使道路空间中的差异清晰可读。</p><figure class='analysis-figure'><img src='assets/gvi-symbolization.jpg' alt='GVI 符号化设置' loading='lazy'><figcaption>图 1.2：ArcGIS Pro 中的 GVI 图层符号化设置过程。</figcaption></figure></article></div><aside class='notice'><strong>分割结果待补充</strong><p>原始街景和灰度图已加入。尚缺能显示绿植识别区域的掩膜或分割叠加图。</p></aside></article>
+        <article class='card'><h2>最终 ArcGIS Pro 制图成果</h2><figure class='analysis-figure'><img src='assets/gvi-final.jpg' alt='平视绿视率（GVI）最终出图' loading='lazy'><figcaption>图 1.3：香港特别行政区绿视率（GVI）空间分级分布图（用户提供的最终 ArcGIS Pro 成图）。</figcaption></figure></article>
+        <article class='card'><h2>指标 / 判读口径</h2><code>GVI = 绿植像素数 / 图像总像素数 × 100%</code></article>
+      </section>
+      <aside>
+        <article class='card'><div class='muted'>核心指标</div><div class='metric'>3.33%</div><div class='muted'>GVI 中位数</div></article>
+        <a class='detail-link' href='map_gvi.html'>单独打开此交互地图 →</a>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

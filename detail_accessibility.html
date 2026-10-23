@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>公共交通就业可达性｜详细分析</title>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <main class='detail'>
+    <a class='back' href='index.html'>← 返回地图交互主页</a>
+    <header class='hero'>
+      <div class='eyebrow'>DATA METHOD &amp; INTERPRETATION</div>
+      <h1>公共交通就业可达性</h1>
+      <p class='subtitle'>网页图层展示 5,724 个就业机会点及其服务区到达时间属性。</p>
+    </header>
+    <div class='grid'>
+      <section>
+        <article class='card'><h2>研究图层说明</h2><p>以就业机会点及其 Total_jobs 属性呈现岗位集聚，并关联服务区到达时间。本页保留用户提供的公共交通就业可达性最终出图，网页交互地图则提供点位属性查询。</p></article>
+        <article class='card'><h2>详细数据与分析流程</h2><div class='step-list'><article class='step'><h3>步骤 1：公共交通网络与就业机会数据整合</h3><p>将公共交通网络、就业岗位或网格点统一至同一坐标系统，并建立就业机会字段与空间位置的对应关系。</p></article><article class='step'><h3>步骤 2：可达性计算与分级表达</h3><p>依据公共交通时间成本或服务范围计算岗位机会可达性，再按数值分级渲染，识别就业资源的集聚与低可达区域。</p></article></div><aside class='notice'><strong>待补充的过程截图</strong><p>尚未提供公共交通网络建模、可达性计算参数或分级渲染的本项目过程截图。若希望把该页变为可复现的实操流程，请补充一张网络分析/OD 成本矩阵或字段计算界面截图。</p></aside></article>
+        <article class='card'><h2>最终 ArcGIS Pro 制图成果</h2><figure class='analysis-figure'><img src='assets/accessibility-final.jpg' alt='公共交通就业可达性最终出图' loading='lazy'><figcaption>图 4.1：公共交通就业可达性分布图（用户提供的最终 ArcGIS Pro 成图）。</figcaption></figure></article>
+        <article class='card'><h2>指标 / 判读口径</h2><code>就业可达性：在既定公共交通网络与时间预算下，可获得的就业机会数量或机会加权值</code></article>
+      </section>
+      <aside>
+        <article class='card'><div class='muted'>核心指标</div><div class='metric'>5,724</div><div class='muted'>有效就业机会点</div></article>
+        <a class='detail-link' href='map_accessibility.html'>单独打开此交互地图 →</a>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

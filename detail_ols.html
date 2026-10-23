@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>OLS 回归标准残差｜详细分析</title>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <main class='detail'>
+    <a class='back' href='index.html'>← 返回地图交互主页</a>
+    <header class='hero'>
+      <div class='eyebrow'>DATA METHOD &amp; INTERPRETATION</div>
+      <h1>OLS 回归标准残差</h1>
+      <p class='subtitle'>共 292 个 TPU 面单元；红色单元代表观测交通量显著高于模型预测。</p>
+    </header>
+    <div class='grid'>
+      <section>
+        <article class='card'><h2>研究图层说明</h2><p>以 TPU 为空间统计单元，使用交通流量作为因变量，并将就业岗位、人口和 POI 等变量进行空间对齐。标准残差用于识别模型对实际交通需求低估或高估的区域。</p></article>
+        <article class='card'><h2>详细数据与分析流程</h2><div class='step-list'><article class='step'><h3>步骤 1：TPU 属性连接（Add Join）</h3><p>将就业和人口等按 TPU 编号统计的表格与香港 TPU 边界进行属性连接，建立回归解释变量的基础数据表。</p><figure class='analysis-figure'><img src='assets/ols-add-join.jpg' alt='ArcGIS Pro Add Join 操作' loading='lazy'><figcaption>图 2.1：TPU 边界与属性表连接的 ArcGIS Pro 操作示例。</figcaption></figure></article><article class='step'><h3>步骤 2：POI 点面聚合（Spatial Join）</h3><p>将离散 POI 点与 TPU 面进行空间连接，统计每个空间单元中的设施数量，形成 POI 密度解释变量。</p><figure class='analysis-figure'><img src='assets/ols-spatial-join.png' alt='ArcGIS Pro Spatial Join 工具' loading='lazy'><figcaption>图 2.2：ArcGIS Pro 中搜索并打开 Spatial Join 工具。</figcaption></figure></article><article class='step'><h3>步骤 3：普通最小二乘回归（OLS）</h3><p>在 ArcGIS Pro 的 Ordinary Least Squares 工具中指定输入面、唯一 ID、交通流量因变量与就业/人口/POI 等解释变量，输出回归结果与报告。</p><figure class='analysis-figure'><img src='assets/ols-model.png' alt='OLS 参数面板' loading='lazy'><figcaption>图 2.3：ArcGIS Pro Ordinary Least Squares（OLS）参数面板。</figcaption></figure></article><article class='step'><h3>步骤 4：标准残差符号化</h3><p>以 StdResid 为字段采用发散色带分级：接近零的区域为中性色，正残差区域转为暖色，高正残差作为空间需求痛点重点识别。</p><figure class='analysis-figure'><img src='assets/ols-symbolization.png' alt='OLS 标准残差符号化' loading='lazy'><figcaption>图 2.4：标准残差的分级色彩与断点设置。</figcaption></figure></article></div></article>
+        <article class='card'><h2>最终 ArcGIS Pro 制图成果</h2><figure class='analysis-figure'><img src='assets/ols-final.jpg' alt='OLS 回归标准残差最终出图' loading='lazy'><figcaption>图 2.5：OLS 回归标准残差图（用户提供的最终 ArcGIS Pro 成图）。</figcaption></figure></article>
+        <article class='card'><h2>指标 / 判读口径</h2><code>StdResid = (观测值 − 预测值) / 残差标准差</code></article>
+      </section>
+      <aside>
+        <article class='card'><div class='muted'>核心指标</div><div class='metric'>7</div><div class='muted'>高正残差单元（> 2.5）</div></article>
+        <a class='detail-link' href='map_ols.html'>单独打开此交互地图 →</a>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
