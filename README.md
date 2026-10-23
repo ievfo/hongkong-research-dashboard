@@ -15,4 +15,3 @@ python3 -m http.server 8000
 - `map_service.html`：0–5、5–10、10–15 分钟慢行服务区
 - `map_accessibility.html`：就业机会点与服务区可达性
 
-注意：OLS.geojson 与 SAA.geojson 原始坐标系分别为 EPSG:2326 和 EPSG:32650；网页生成时已转换至 WGS84（EPSG:4326），未改动桌面原始数据。
